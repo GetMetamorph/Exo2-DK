@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class App {
 
     // calcule le prix payé par l'utilisateur dans le restaurant, en fonction de type de
@@ -5,7 +7,7 @@ public class App {
     // de son type (normal ou special) et si il prend un café ou pas (yes ou no).
     // les prix sont fixes pour chaque type de chose mais des réductions peuvent s'appliquer
     // si cela rentre dans une formule!
-    public int Compute(String type, String name, String beverage, String size, String dessert, String dsize, String coffee) {
+    public int Compute(String type, String name, String size, String dsize, String coffee) {
         // prix total à payer pour le client
         int total = 0;
 
@@ -15,10 +17,10 @@ public class App {
         // si le client prends un plat en assiette
         if (type.equals("assiette")) {
             total += 15;
-            
+
             // ainsi qu'une boisson de taille:
-            if (size == "petit") {        
-                
+            if (size == "petit") {
+
                     total += 2;
                     // dans ce cas, on applique la formule standard
                     if (dsize.equals("normal")) {
@@ -29,11 +31,11 @@ public class App {
                         // sinon on rajoute le prix du dessert special
                         total += 4;
                     }
-                    
+
                 // si on prends moyen
             } else if (size=="moyen") {
-              
-            
+
+
                     total += 3;
                     // dans ce cas, on applique la formule standard
                     if (dsize.equals("normal")) {
@@ -45,7 +47,7 @@ public class App {
                         // sinon on rajoute le prix du dessert special
                         total += 4;
                     }
-                    
+
           } else if (size=="grand") {
                     total += 4;
                     // dans ce cas, on applique la formule standard
@@ -58,14 +60,14 @@ public class App {
                         System.out.print("Prix Formule Max appliquée ");
                         total = 21;
                     }
-                    
+
             }
         }
         // mode sandwich
         else {
             total += 10;
             // ainsi qu'une boisson de taille:
-            if (size == "petit") {  
+            if (size == "petit") {
                     total += 2;
                     // dans ce cas, on applique la formule standard
                     if (dsize.equals("normal")) {
@@ -76,7 +78,7 @@ public class App {
                         // sinon on rajoute le prix du dessert special
                         total += 4;
                     }
-                   
+
                 // si on prends moyen
               } else if (size=="moyen") {
                     total += 3;
@@ -90,7 +92,7 @@ public class App {
                         // sinon on rajoute le prix du dessert special
                         total += 4;
                     }
-                    
+
             } else if (size=="grand") {
                     total += 4;
                     // dans ce cas, on applique la formule standard
@@ -103,7 +105,7 @@ public class App {
                         System.out.print("Prix Formule Max appliquée ");
                         total = 16;
                     }
-                    
+
             }
         }
         if (type.equals("assiette") && size.equals("moyen") && dsize.equals("normal") && coffee.equals("yes")) {
@@ -116,6 +118,9 @@ public class App {
         }
         return total;
     }
+
+
+
 
 
 }
